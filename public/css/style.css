@@ -408,6 +408,54 @@ a {
     background-color: var(--spd-red-light);
 }
 
+/* Gallery Navigation Buttons (Mobile) */
+.gallery-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: var(--spd-red);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.2s ease, background-color 0.2s ease;
+    z-index: 10;
+}
+
+.gallery-nav:hover {
+    background-color: var(--white);
+}
+
+.gallery-nav:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.gallery-nav-prev {
+    left: 10px;
+}
+
+.gallery-nav-next {
+    right: 10px;
+}
+
+.gallery-nav svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Desktop: Buttons ausblenden */
+@media (min-width: 768px) {
+    .gallery-nav {
+        display: none;
+    }
+}
+
 /* Desktop: Drei Bilder nebeneinander */
 @media (min-width: 768px) {
     .gallery-track {
@@ -651,6 +699,49 @@ a {
     }
 }
 
+/* Coming Soon Overlay für Kandidaten ohne Bilder */
+.candidate-card.coming-soon .candidate-image::after {
+    content: 'Bild folgt';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--spd-red) 0%, var(--spd-red-dark) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.candidate-card.coming-soon .candidate-image img {
+    display: none;
+}
+
+/* Coming Soon auf Detailseite */
+.gallery-coming-soon {
+    background: linear-gradient(135deg, var(--spd-red) 0%, var(--spd-red-dark) 100%);
+    border-radius: 8px;
+    padding: 80px 40px;
+    text-align: center;
+    color: var(--white);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-coming-soon h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.gallery-coming-soon p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
 /* Placeholder für fehlende Bilder */
 .candidate-image img[src=""],
 .candidate-image img:not([src]),
@@ -670,6 +761,74 @@ a {
     width: 100%;
     height: 100%;
     background: linear-gradient(135deg, var(--gray-200) 0%, var(--gray-300) 100%);
+}
+
+/* ==================
+   LEGAL PAGES (Impressum, Datenschutz)
+   ================== */
+.legal-page {
+    flex: 1;
+    padding: 60px 20px;
+    background-color: var(--white);
+}
+
+.legal-page .container {
+    max-width: 800px;
+}
+
+.legal-page h1 {
+    font-size: 2.5rem;
+    color: var(--spd-red);
+    margin-bottom: 40px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid var(--spd-red);
+}
+
+.legal-page h2 {
+    font-size: 1.25rem;
+    color: var(--gray-900);
+    margin-top: 35px;
+    margin-bottom: 15px;
+}
+
+.legal-page h3 {
+    font-size: 1.1rem;
+    color: var(--gray-800);
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+.legal-page p {
+    margin-bottom: 15px;
+    line-height: 1.7;
+}
+
+.legal-page ul {
+    margin: 15px 0;
+    padding-left: 25px;
+}
+
+.legal-page li {
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+
+.legal-page em {
+    color: var(--gray-600);
+}
+
+@media (max-width: 599px) {
+    .legal-page {
+        padding: 40px 15px;
+    }
+
+    .legal-page h1 {
+        font-size: 1.75rem;
+    }
+
+    .legal-page h2 {
+        font-size: 1.1rem;
+    }
 }
 
 /* Print Styles */
